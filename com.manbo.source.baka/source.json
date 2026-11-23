@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "id": "com.manbo.source.baka",
+    "name": "巴卡漫画",
+    "type": "manga",
+    "engine": "arkts-builtin",
+    "version": "1.0.0",
+    "language": "zh",
+    "baseUrl": "https://bakamh.com",
+    "description": "巴卡漫画。Cloudflare 托管挑战，需 WebView 过盾后注入 cf_clearance。",
+    "nsfw": false,
+    "tags": [
+      "builtin"
+    ]
+  },
+  "sources": [
+    {
+      "name": "巴卡漫画",
+      "lang": "zh",
+      "baseUrl": "https://bakamh.com"
+    }
+  ]
+}

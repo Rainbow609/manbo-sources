@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "id": "com.manbo.source.baozi",
+    "name": "包子漫画",
+    "type": "manga",
+    "engine": "arkts-builtin",
+    "version": "1.0.0",
+    "language": "zh",
+    "baseUrl": "https://cn.baozimh.com",
+    "description": "包子漫画（baozimh）。",
+    "nsfw": false,
+    "tags": [
+      "builtin"
+    ]
+  },
+  "sources": [
+    {
+      "name": "包子漫画",
+      "lang": "zh",
+      "baseUrl": "https://cn.baozimh.com"
+    }
+  ]
+}

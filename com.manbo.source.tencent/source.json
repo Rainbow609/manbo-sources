@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "id": "com.manbo.source.tencent",
+    "name": "腾讯漫画",
+    "type": "manga",
+    "engine": "arkts-builtin",
+    "version": "1.0.0",
+    "language": "zh",
+    "baseUrl": "https://ac.qq.com",
+    "description": "腾讯动漫（ac.qq.com）。",
+    "nsfw": false,
+    "tags": [
+      "builtin"
+    ]
+  },
+  "sources": [
+    {
+      "name": "腾讯漫画",
+      "lang": "zh",
+      "baseUrl": "https://ac.qq.com"
+    }
+  ]
+}

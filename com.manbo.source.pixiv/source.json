@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "id": "com.manbo.source.pixiv",
+    "name": "Pixiv",
+    "type": "manga",
+    "engine": "arkts-builtin",
+    "version": "1.0.0",
+    "language": "ja",
+    "baseUrl": "https://www.pixiv.net",
+    "description": "Pixiv。需 OAuth 登录；站内混有 R-18 投稿，按 18+ 图源处理。",
+    "nsfw": true,
+    "tags": [
+      "builtin"
+    ]
+  },
+  "sources": [
+    {
+      "name": "Pixiv",
+      "lang": "ja",
+      "baseUrl": "https://www.pixiv.net"
+    }
+  ]
+}

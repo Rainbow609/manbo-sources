@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "id": "com.manbo.source.goda",
+    "name": "GoDa漫画",
+    "type": "manga",
+    "engine": "arkts-builtin",
+    "version": "1.0.0",
+    "language": "zh",
+    "baseUrl": "https://api-get-v3.mgsearcher.com",
+    "description": "GoDa 漫画。页图下发为站内相对路径，需 imageBase 拼接。",
+    "nsfw": false,
+    "tags": [
+      "builtin"
+    ]
+  },
+  "sources": [
+    {
+      "name": "GoDa漫画",
+      "lang": "zh",
+      "baseUrl": "https://api-get-v3.mgsearcher.com"
+    }
+  ]
+}

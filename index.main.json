@@ -1,0 +1,308 @@
+[
+  {
+    "name": "Manbo: 哔咔漫画",
+    "pkg": "com.manbo.source.pica",
+    "type": "manga",
+    "lang": "zh",
+    "code": 1,
+    "version": "1.0.0",
+    "nsfw": 1,
+    "hasIcon": false,
+    "sources": [
+      {
+        "name": "哔咔漫画",
+        "lang": "zh",
+        "baseUrl": "https://picaapi.picacomic.com"
+      }
+    ]
+  },
+  {
+    "name": "Manbo: Komiic",
+    "pkg": "com.manbo.source.komiic",
+    "type": "manga",
+    "lang": "zh",
+    "code": 2,
+    "version": "1.0.0",
+    "nsfw": 0,
+    "hasIcon": false,
+    "sources": [
+      {
+        "name": "Komiic",
+        "lang": "zh",
+        "baseUrl": "https://komiic.cc"
+      }
+    ]
+  },
+  {
+    "name": "Manbo: 拷贝漫画",
+    "pkg": "com.manbo.source.copy",
+    "type": "manga",
+    "lang": "zh",
+    "code": 3,
+    "version": "1.0.0",
+    "nsfw": 0,
+    "hasIcon": false,
+    "sources": [
+      {
+        "name": "拷贝漫画",
+        "lang": "zh",
+        "baseUrl": "https://api.2026copy.com"
+      }
+    ]
+  },
+  {
+    "name": "Manbo: 哔哩漫画",
+    "pkg": "com.manbo.source.bilibili",
+    "type": "manga",
+    "lang": "zh",
+    "code": 4,
+    "version": "1.0.0",
+    "nsfw": 0,
+    "hasIcon": false,
+    "sources": [
+      {
+        "name": "哔哩漫画",
+        "lang": "zh",
+        "baseUrl": "https://www.bilimanga.net"
+      }
+    ]
+  },
+  {
+    "name": "Manbo: 包子漫画",
+    "pkg": "com.manbo.source.baozi",
+    "type": "manga",
+    "lang": "zh",
+    "code": 5,
+    "version": "1.0.0",
+    "nsfw": 0,
+    "hasIcon": false,
+    "sources": [
+      {
+        "name": "包子漫画",
+        "lang": "zh",
+        "baseUrl": "https://cn.baozimh.com"
+      }
+    ]
+  },
+  {
+    "name": "Manbo: GoDa漫画",
+    "pkg": "com.manbo.source.goda",
+    "type": "manga",
+    "lang": "zh",
+    "code": 6,
+    "version": "1.0.0",
+    "nsfw": 0,
+    "hasIcon": false,
+    "sources": [
+      {
+        "name": "GoDa漫画",
+        "lang": "zh",
+        "baseUrl": "https://api-get-v3.mgsearcher.com"
+      }
+    ]
+  },
+  {
+    "name": "Manbo: 巴卡漫画",
+    "pkg": "com.manbo.source.baka",
+    "type": "manga",
+    "lang": "zh",
+    "code": 7,
+    "version": "1.0.0",
+    "nsfw": 0,
+    "hasIcon": false,
+    "sources": [
+      {
+        "name": "巴卡漫画",
+        "lang": "zh",
+        "baseUrl": "https://bakamh.com"
+      }
+    ]
+  },
+  {
+    "name": "Manbo: 再漫画",
+    "pkg": "com.manbo.source.zai",
+    "type": "manga",
+    "lang": "zh",
+    "code": 8,
+    "version": "1.0.0",
+    "nsfw": 0,
+    "hasIcon": false,
+    "sources": [
+      {
+        "name": "再漫画",
+        "lang": "zh",
+        "baseUrl": "https://v4api.zaimanhua.com"
+      }
+    ]
+  },
+  {
+    "name": "Manbo: JComic",
+    "pkg": "com.manbo.source.jcomic",
+    "type": "manga",
+    "lang": "zh",
+    "code": 9,
+    "version": "1.0.0",
+    "nsfw": 1,
+    "hasIcon": false,
+    "sources": [
+      {
+        "name": "JComic",
+        "lang": "zh",
+        "baseUrl": "https://jcomic.net"
+      }
+    ]
+  },
+  {
+    "name": "Manbo: 漫画1234",
+    "pkg": "com.manbo.source.mh1234",
+    "type": "manga",
+    "lang": "zh",
+    "code": 10,
+    "version": "1.0.0",
+    "nsfw": 0,
+    "hasIcon": false,
+    "sources": [
+      {
+        "name": "漫画1234",
+        "lang": "zh",
+        "baseUrl": "https://m.wmh1234.com"
+      }
+    ]
+  },
+  {
+    "name": "Manbo: 禁漫天堂",
+    "pkg": "com.manbo.source.jinman",
+    "type": "manga",
+    "lang": "zh",
+    "code": 11,
+    "version": "1.0.0",
+    "nsfw": 1,
+    "hasIcon": false,
+    "sources": [
+      {
+        "name": "禁漫天堂",
+        "lang": "zh",
+        "baseUrl": "https://comic18j-lodo.cc"
+      }
+    ]
+  },
+  {
+    "name": "Manbo: 漫蛙",
+    "pkg": "com.manbo.source.manwa",
+    "type": "manga",
+    "lang": "zh",
+    "code": 12,
+    "version": "1.0.0",
+    "nsfw": 1,
+    "hasIcon": false,
+    "sources": [
+      {
+        "name": "漫蛙",
+        "lang": "zh",
+        "baseUrl": "https://manwafl.cc"
+      }
+    ]
+  },
+  {
+    "name": "Manbo: 肉漫屋",
+    "pkg": "com.manbo.source.roumanwu",
+    "type": "manga",
+    "lang": "zh",
+    "code": 13,
+    "version": "1.0.0",
+    "nsfw": 1,
+    "hasIcon": false,
+    "sources": [
+      {
+        "name": "肉漫屋",
+        "lang": "zh",
+        "baseUrl": "https://rouman5.com"
+      }
+    ]
+  },
+  {
+    "name": "Manbo: 绅士漫画",
+    "pkg": "com.manbo.source.wnacg",
+    "type": "manga",
+    "lang": "zh",
+    "code": 14,
+    "version": "1.0.0",
+    "nsfw": 1,
+    "hasIcon": false,
+    "sources": [
+      {
+        "name": "绅士漫画",
+        "lang": "zh",
+        "baseUrl": "https://www.wn10.cfd"
+      }
+    ]
+  },
+  {
+    "name": "Manbo: E-Hentai",
+    "pkg": "com.manbo.source.ehentai",
+    "type": "manga",
+    "lang": "all",
+    "code": 15,
+    "version": "1.0.0",
+    "nsfw": 1,
+    "hasIcon": false,
+    "sources": [
+      {
+        "name": "E-Hentai",
+        "lang": "all",
+        "baseUrl": "https://e-hentai.org"
+      }
+    ]
+  },
+  {
+    "name": "Manbo: Pixiv",
+    "pkg": "com.manbo.source.pixiv",
+    "type": "manga",
+    "lang": "ja",
+    "code": 16,
+    "version": "1.0.0",
+    "nsfw": 1,
+    "hasIcon": false,
+    "sources": [
+      {
+        "name": "Pixiv",
+        "lang": "ja",
+        "baseUrl": "https://www.pixiv.net"
+      }
+    ]
+  },
+  {
+    "name": "Manbo: 腾讯漫画",
+    "pkg": "com.manbo.source.tencent",
+    "type": "manga",
+    "lang": "zh",
+    "code": 17,
+    "version": "1.0.0",
+    "nsfw": 0,
+    "hasIcon": false,
+    "sources": [
+      {
+        "name": "腾讯漫画",
+        "lang": "zh",
+        "baseUrl": "https://ac.qq.com"
+      }
+    ]
+  },
+  {
+    "name": "Manbo: 漫小肆",
+    "pkg": "com.manbo.source.mangaxiaosi",
+    "type": "manga",
+    "lang": "zh",
+    "code": 18,
+    "version": "1.0.0",
+    "nsfw": 0,
+    "hasIcon": false,
+    "sources": [
+      {
+        "name": "漫小肆",
+        "lang": "zh",
+        "baseUrl": "https://www.jjmhw8.top"
+      }
+    ]
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "id": "com.manbo.source.jcomic",
+    "name": "JComic",
+    "type": "manga",
+    "engine": "arkts-builtin",
+    "version": "1.0.0",
+    "language": "zh",
+    "baseUrl": "https://jcomic.net",
+    "description": "JComic 漫画站。",
+    "nsfw": true,
+    "tags": [
+      "builtin"
+    ]
+  },
+  "sources": [
+    {
+      "name": "JComic",
+      "lang": "zh",
+      "baseUrl": "https://jcomic.net"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "id": "com.manbo.source.mh1234",
+    "name": "漫画1234",
+    "type": "manga",
+    "engine": "arkts-builtin",
+    "version": "1.0.0",
+    "language": "zh",
+    "baseUrl": "https://m.wmh1234.com",
+    "description": "漫画1234 移动站。",
+    "nsfw": false,
+    "tags": [
+      "builtin"
+    ]
+  },
+  "sources": [
+    {
+      "name": "漫画1234",
+      "lang": "zh",
+      "baseUrl": "https://m.wmh1234.com"
+    }
+  ]
+}

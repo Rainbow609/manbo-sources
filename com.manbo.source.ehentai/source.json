@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "id": "com.manbo.source.ehentai",
+    "name": "E-Hentai",
+    "type": "manga",
+    "engine": "arkts-builtin",
+    "version": "1.0.0",
+    "language": "all",
+    "baseUrl": "https://e-hentai.org",
+    "description": "E-Hentai。",
+    "nsfw": true,
+    "tags": [
+      "builtin"
+    ]
+  },
+  "sources": [
+    {
+      "name": "E-Hentai",
+      "lang": "all",
+      "baseUrl": "https://e-hentai.org"
+    }
+  ]
+}

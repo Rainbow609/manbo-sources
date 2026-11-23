@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "id": "com.manbo.source.bilibili",
+    "name": "哔哩漫画",
+    "type": "manga",
+    "engine": "arkts-builtin",
+    "version": "1.0.0",
+    "language": "zh",
+    "baseUrl": "https://www.bilimanga.net",
+    "description": "哔哩哔哩漫画。AVIF 页图与限流。",
+    "nsfw": false,
+    "tags": [
+      "builtin"
+    ]
+  },
+  "sources": [
+    {
+      "name": "哔哩漫画",
+      "lang": "zh",
+      "baseUrl": "https://www.bilimanga.net"
+    }
+  ]
+}

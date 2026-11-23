@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "id": "com.manbo.source.roumanwu",
+    "name": "肉漫屋",
+    "type": "manga",
+    "engine": "arkts-builtin",
+    "version": "1.0.0",
+    "language": "zh",
+    "baseUrl": "https://rouman5.com",
+    "description": "肉漫屋。",
+    "nsfw": true,
+    "tags": [
+      "builtin"
+    ]
+  },
+  "sources": [
+    {
+      "name": "肉漫屋",
+      "lang": "zh",
+      "baseUrl": "https://rouman5.com"
+    }
+  ]
+}

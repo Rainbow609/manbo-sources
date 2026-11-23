@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "id": "com.manbo.source.manwa",
+    "name": "漫蛙",
+    "type": "manga",
+    "engine": "arkts-builtin",
+    "version": "1.0.0",
+    "language": "zh",
+    "baseUrl": "https://manwafl.cc",
+    "description": "漫蛙。页图 AES 解密。",
+    "nsfw": true,
+    "tags": [
+      "builtin"
+    ]
+  },
+  "sources": [
+    {
+      "name": "漫蛙",
+      "lang": "zh",
+      "baseUrl": "https://manwafl.cc"
+    }
+  ]
+}

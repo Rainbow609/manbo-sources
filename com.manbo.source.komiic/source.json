@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "id": "com.manbo.source.komiic",
+    "name": "Komiic",
+    "type": "manga",
+    "engine": "arkts-builtin",
+    "version": "1.0.0",
+    "language": "zh",
+    "baseUrl": "https://komiic.cc",
+    "description": "Komiic 漫画站。",
+    "nsfw": false,
+    "tags": [
+      "builtin"
+    ]
+  },
+  "sources": [
+    {
+      "name": "Komiic",
+      "lang": "zh",
+      "baseUrl": "https://komiic.cc"
+    }
+  ]
+}

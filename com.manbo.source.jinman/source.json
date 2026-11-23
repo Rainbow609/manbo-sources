@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "id": "com.manbo.source.jinman",
+    "name": "禁漫天堂",
+    "type": "manga",
+    "engine": "arkts-builtin",
+    "version": "1.0.0",
+    "language": "zh",
+    "baseUrl": "https://comic18j-lodo.cc",
+    "description": "禁漫天堂（18comic）。多镜像。",
+    "nsfw": true,
+    "tags": [
+      "builtin"
+    ]
+  },
+  "sources": [
+    {
+      "name": "禁漫天堂",
+      "lang": "zh",
+      "baseUrl": "https://comic18j-lodo.cc"
+    }
+  ]
+}

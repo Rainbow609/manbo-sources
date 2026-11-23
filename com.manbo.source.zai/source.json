@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "id": "com.manbo.source.zai",
+    "name": "再漫画",
+    "type": "manga",
+    "engine": "arkts-builtin",
+    "version": "1.0.0",
+    "language": "zh",
+    "baseUrl": "https://v4api.zaimanhua.com",
+    "description": "再漫画（zaimanhua）APP 接口。",
+    "nsfw": false,
+    "tags": [
+      "builtin"
+    ]
+  },
+  "sources": [
+    {
+      "name": "再漫画",
+      "lang": "zh",
+      "baseUrl": "https://v4api.zaimanhua.com"
+    }
+  ]
+}

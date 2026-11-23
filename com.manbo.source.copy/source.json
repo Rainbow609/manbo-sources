@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "id": "com.manbo.source.copy",
+    "name": "拷贝漫画",
+    "type": "manga",
+    "engine": "arkts-builtin",
+    "version": "1.0.0",
+    "language": "zh",
+    "baseUrl": "https://api.2026copy.com",
+    "description": "拷贝漫画（CopyManga）。多镜像竞速 + token 三件套。",
+    "nsfw": false,
+    "tags": [
+      "builtin"
+    ]
+  },
+  "sources": [
+    {
+      "name": "拷贝漫画",
+      "lang": "zh",
+      "baseUrl": "https://api.2026copy.com"
+    }
+  ]
+}

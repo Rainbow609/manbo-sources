@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "id": "com.manbo.source.wnacg",
+    "name": "绅士漫画",
+    "type": "manga",
+    "engine": "arkts-builtin",
+    "version": "1.0.0",
+    "language": "zh",
+    "baseUrl": "https://www.wn10.cfd",
+    "description": "紳士漫畫（WNACG）。",
+    "nsfw": true,
+    "tags": [
+      "builtin"
+    ]
+  },
+  "sources": [
+    {
+      "name": "绅士漫画",
+      "lang": "zh",
+      "baseUrl": "https://www.wn10.cfd"
+    }
+  ]
+}

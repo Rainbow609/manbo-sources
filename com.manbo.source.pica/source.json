@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "id": "com.manbo.source.pica",
+    "name": "哔咔漫画",
+    "type": "manga",
+    "engine": "arkts-builtin",
+    "version": "1.0.0",
+    "language": "zh",
+    "baseUrl": "https://picaapi.picacomic.com",
+    "description": "哔咔漫画（PicaComic）。需登录账号；JWT + HMAC-SHA256 签名。",
+    "nsfw": true,
+    "tags": [
+      "builtin"
+    ]
+  },
+  "sources": [
+    {
+      "name": "哔咔漫画",
+      "lang": "zh",
+      "baseUrl": "https://picaapi.picacomic.com"
+    }
+  ]
+}
