@@ -19,5 +19,11 @@
       "lang": "zh",
       "baseUrl": "https://komiic.cc"
     }
-  ]
+  ],
+  "config": {
+    "mirrors": [
+      "komiic.cc",
+      "komiic.com"
+    ]
+  }
 }

@@ -18,7 +18,10 @@
     "config": {
       "mirrors": [
         "picaapi.picacomic.com"
-      ]
+      ],
+      "mirrorLabels": {
+        "picaapi.picacomic.com": "官方线路"
+      }
     }
   },
   {
@@ -36,7 +39,13 @@
         "lang": "zh",
         "baseUrl": "https://komiic.cc"
       }
-    ]
+    ],
+    "config": {
+      "mirrors": [
+        "komiic.cc",
+        "komiic.com"
+      ]
+    }
   },
   {
     "name": "Manbo: 拷贝漫画",
@@ -161,7 +170,16 @@
         "lang": "zh",
         "baseUrl": "https://api-get-v3.mgsearcher.com"
       }
-    ]
+    ],
+    "config": {
+      "mirrors": [
+        "godamh.com",
+        "baozimh.org",
+        "bzmh.org",
+        "g-mh.org",
+        "m.g-mh.org"
+      ]
+    }
   },
   {
     "name": "Manbo: 巴卡漫画",
