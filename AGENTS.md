@@ -18,8 +18,8 @@ manbo 系列阅读器「纸飞机」（`manbo-reader`）的图源订阅仓库。
 - `<key>` 必须在 reader `ONLINE_SOURCE_IDS` 清单内，且 `pkg` 包含该 key（reader 按 pkg/name 模糊匹配）。
 - `index.json` 是**生成产物**，单一真源是各 `config.json`；改完必跑 `node scripts/build-index.mjs`。
 - 顺序由 `scripts/build-index.mjs` 的 `ORDER` 锁定（与 reader `ONLINE_SOURCE_IDS` 对齐），不要手改清单顺序。
-- 镜像线路（`copy`/`jinman`/`manwa`/`baozi`/`wnacg`/`roumanwu`/`pixiv`/`pica` 的 `config.mirrors`）**以本仓为权威编辑入口**；reader 内置是离线兜底，发版时同步。`copy` 必须同时维护 `mirrorGroups`，并可带 `mirrorLabels`。
-- ⚠️ reader 目前不消费 `mirrorLabels`，「强制锁定线路」弹层仍读 `Index.ets` 硬编码表；让弹层改读源配置归 reader 侧改动。
+- 镜像线路（`copy`/`jinman`/`manwa`/`baozi`/`wnacg`/`goda`/`komiic`/`roumanwu`/`pixiv`/`pica` 的 `config.mirrors`）**以本仓为权威编辑入口**；reader 内置是离线兜底，发版时同步。`copy` 必须同时维护 `mirrorGroups`；`mirrorLabels` 只给需要非序号展示名的源（copy、pica），缺省由 reader 回退 `线路N (host)`。
+- ⚠️ reader 目前不消费 `mirrorLabels`，「强制锁定线路」弹层仍读 `Index.ets` 的 9 张硬编码表；让弹层改读源配置归 reader 侧改动（ADR-0011 / 票 A）。
 
 ## 常用命令
 

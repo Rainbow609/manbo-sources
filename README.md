@@ -98,7 +98,7 @@ node scripts/build-index.mjs --check
 
 ### 镜像线路（在本仓维护）
 
-以下 8 个源的镜像线路**以本仓为准**，订阅者改这里即可免发版生效：
+以下 10 个源的镜像线路**以本仓为准**，订阅者改这里即可免发版生效：
 
 | 源 | 线路数 | 说明 |
 | --- | --- | --- |
@@ -107,6 +107,8 @@ node scripts/build-index.mjs --check
 | `manwa` 漫蛙 | 6 | |
 | `baozi` 包子漫画 | 5 | |
 | `wnacg` 绅士漫画 | 4 | |
+| `goda` GoDa漫画 | 5 | 与图像站同源的全站镜像 |
+| `komiic` Komiic | 2 | 大陆可直连线路优先 |
 | `roumanwu` 肉漫屋 | 2 | |
 | `pixiv` Pixiv | 1 | |
 | `pica` 哔咔漫画 | 1 | |
@@ -114,11 +116,14 @@ node scripts/build-index.mjs --check
 - 当前 reader 内置线路与本仓 `config` 逐值一致；`BUILTIN_SOURCE_CONFIGS` 是**离线兜底**，
   发版时应与本仓同步（见 AGENTS.md 检查清单）。
 - `copy` 只给 `mirrors` 不给 `mirrorGroups` 会把「境内 → 国际」两队竞速**降级为单队**。
-- `copy` 另带 `mirrorLabels`（国际服 / 大陆专线1… / 热辣漫画 线路N）。
+- `copy` 另带 `mirrorLabels`（国际服 / 大陆专线1… / 热辣漫画 线路N）；`pica` 标注「官方线路」。
+  其余源不写 `mirrorLabels` 时，reader 回退展示 `线路N (host)`。
 - ⚠️ **已知缺口**：reader 目前**不消费** `mirrorLabels`，「强制锁定线路」弹层仍读
-  `Index.ets` 里的硬编码表（`COPY_MIRRORS` / `JINMAN_MIRRORS` / `MANWA_MIRRORS` /
-  `ROUMANWU_MIRRORS`），且 jinman 的弹层线路与内置配置本就不同。让弹层改读生效源配置
-  归 reader 侧改动（弹层读配置 + `mirrorLabels` + `DEBUG_DEFAULT_URL` 一并处理）。
+  `Index.ets` 里的 9 张硬编码表（`COPY_MIRRORS` / `JINMAN_MIRRORS` / `MANWA_MIRRORS` /
+  `ROUMANWU_MIRRORS` / `WNACG_MIRRORS` / `BAOZI_MIRRORS` / `GODA_MIRRORS` /
+  `KOMIIC_MIRRORS` / `PICA_MIRRORS`），且 jinman / wnacg 的弹层线路与内置配置本就不同。
+  让弹层改读生效源配置归 reader 侧改动（弹层读配置 + `mirrorLabels` + `DEBUG_DEFAULT_URL`
+  一并处理，见 reader ADR-0011 与票 A）。
 
 > ⚠️ **其余 `config` 仍是覆盖**：除镜像线路外，只在确实要盖过 App 内置默认时才声明；
 > App 内置已修好的值不要在这里复述，否则内置更新会被陈旧覆盖挡住。
