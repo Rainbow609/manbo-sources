@@ -19,5 +19,10 @@
       "lang": "zh",
       "baseUrl": "https://picaapi.picacomic.com"
     }
-  ]
+  ],
+  "config": {
+    "mirrors": [
+      "picaapi.picacomic.com"
+    ]
+  }
 }

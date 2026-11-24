@@ -19,5 +19,11 @@
       "lang": "zh",
       "baseUrl": "https://rouman5.com"
     }
-  ]
+  ],
+  "config": {
+    "mirrors": [
+      "rouman5.com",
+      "roum28.xyz"
+    ]
+  }
 }

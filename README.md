@@ -92,16 +92,38 @@ node scripts/build-index.mjs --check
 | `themeMap` | `Record<string,string>` |
 | `capabilities` | `{ label?, comments?, tagSearch?, authorSearch?, authorPaged?, placeholderAuthor?, multiTag? }` |
 
-> ⚠️ **热更纪律**：`config` 是**覆盖**，不是补丁合并。
-> 只在确实要盖过 App 内置默认时才在此声明；App 内置已修好的值不要在这里复述，
-> 否则内置更新会被陈旧覆盖挡住。数组字段（`mirrors`/`tagFilters`/`homeTabs`）尤其如此。
+### 镜像线路（在本仓维护）
+
+以下 8 个源的镜像线路**以本仓为准**，订阅者改这里即可免发版生效：
+
+| 源 | 线路数 | 说明 |
+| --- | --- | --- |
+| `copy` 拷贝漫画 | 12 | 11 条境内 + 1 条国际，**必须同时给 `mirrors` 与 `mirrorGroups`** |
+| `jinman` 禁漫天堂 | 6 | |
+| `manwa` 漫蛙 | 6 | |
+| `baozi` 包子漫画 | 5 | |
+| `wnacg` 绅士漫画 | 4 | |
+| `roumanwu` 肉漫屋 | 2 | |
+| `pixiv` Pixiv | 1 | |
+| `pica` 哔咔漫画 | 1 | |
+
+- 当前 reader 内置线路与本仓 `config` 逐值一致；`BUILTIN_SOURCE_CONFIGS` 是**离线兜底**，
+  发版时应与本仓同步。
+- `copy` 只给 `mirrors` 不给 `mirrorGroups` 会把「境内 → 国际」两队竞速**降级为单队**。
+- ⚠️ **已知缺口**：reader 的「强制锁定线路」弹层读的是 `Index.ets` 里另一份硬编码表
+  （`COPY_MIRRORS` / `JINMAN_MIRRORS` / `MANWA_MIRRORS` / `ROUMANWU_MIRRORS`），
+  **不读本仓 config**；改线路后该弹层不会同步，需另开 reader 侧改动。
+
+> ⚠️ **其余 `config` 仍是覆盖**：除镜像线路外，只在确实要盖过 App 内置默认时才声明；
+> App 内置已修好的值不要在这里复述，否则内置更新会被陈旧覆盖挡住。
+> 数组字段（`tagFilters`/`homeTabs`）尤其如此。
 
 ## 与 reader 的关系
 
 - 消费链路：`SourceSubscription.fetchAndApply()` → `AppStorage.importedExtensionsStr`
   → `OnlineSourceView.parseSources()`（可用列表）+
   `SourceConfigMerger.resolveSourceConfigs()`（配置热更）+ `SourceCapabilityResolver`（能力）。
-- 内置默认仍是 reader 里的 `BUILTIN_SOURCE_CONFIGS`，本仓库只提供**清单与可选覆盖**。
+- 镜像线路以本仓维护；其余内置默认在 reader 的 `BUILTIN_SOURCE_CONFIGS`，本仓库是**清单 + 覆盖通道**。
 - 清单条目结构以 reader `SourceSubscription.ets` 文件头注释与
   `docs/adr/0001-source-refactor-shape.md` 为准。
 

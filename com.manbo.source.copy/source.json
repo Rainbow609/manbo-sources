@@ -19,5 +19,39 @@
       "lang": "zh",
       "baseUrl": "https://api.2026copy.com"
     }
-  ]
+  ],
+  "config": {
+    "mirrors": [
+      "https://mapi.copy20.com/api/v3",
+      "https://mapi.copy2000.site/api/v3",
+      "https://api.2025copy.com/api/v3",
+      "https://api.2026copy.com/api/v3",
+      "https://mapi.hotmangasd.com/api/v3",
+      "https://api.manga2025.com/api/v3",
+      "https://mapi.hotmangasf.com/api/v3",
+      "https://mapi.hotmangasg.com/api/v3",
+      "https://mapi.elfgjfghkk.club/api/v3",
+      "https://mapi.fgjfghkk.club/api/v3",
+      "https://mapi.fgjfghkkcenter.club/api/v3",
+      "https://api.mangacopy.com/api/v3"
+    ],
+    "mirrorGroups": [
+      [
+        "https://mapi.copy20.com/api/v3",
+        "https://mapi.copy2000.site/api/v3",
+        "https://api.2025copy.com/api/v3",
+        "https://api.2026copy.com/api/v3",
+        "https://mapi.hotmangasd.com/api/v3",
+        "https://api.manga2025.com/api/v3",
+        "https://mapi.hotmangasf.com/api/v3",
+        "https://mapi.hotmangasg.com/api/v3",
+        "https://mapi.elfgjfghkk.club/api/v3",
+        "https://mapi.fgjfghkk.club/api/v3",
+        "https://mapi.fgjfghkkcenter.club/api/v3"
+      ],
+      [
+        "https://api.mangacopy.com/api/v3"
+      ]
+    ]
+  }
 }

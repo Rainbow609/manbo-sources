@@ -19,5 +19,13 @@
       "lang": "zh",
       "baseUrl": "https://www.wn10.cfd"
     }
-  ]
+  ],
+  "config": {
+    "mirrors": [
+      "www.wn10.cfd",
+      "www.wn10.shop",
+      "www.wn07.cfd",
+      "www.wn07.shop"
+    ]
+  }
 }

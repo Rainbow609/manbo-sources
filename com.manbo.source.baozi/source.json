@@ -19,5 +19,14 @@
       "lang": "zh",
       "baseUrl": "https://cn.baozimh.com"
     }
-  ]
+  ],
+  "config": {
+    "mirrors": [
+      "cn.baozimh.com",
+      "cn.webmota.com",
+      "cn.kukuc.co",
+      "cn.twmanga.com",
+      "cn.dinnerku.com"
+    ]
+  }
 }

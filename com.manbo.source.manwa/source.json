@@ -19,5 +19,15 @@
       "lang": "zh",
       "baseUrl": "https://manwafl.cc"
     }
-  ]
+  ],
+  "config": {
+    "mirrors": [
+      "manwafl.cc",
+      "manwass.cc",
+      "manwatg.cc",
+      "manwast.cc",
+      "manwasy.cc",
+      "manwa.me"
+    ]
+  }
 }

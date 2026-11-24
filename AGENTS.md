@@ -18,6 +18,8 @@ manbo 系列阅读器「纸飞机」（`manbo-reader`）的图源订阅仓库。
 - `<key>` 必须在 reader `ONLINE_SOURCE_IDS` 清单内，且 `pkg` 包含该 key（reader 按 pkg/name 模糊匹配）。
 - `index.main.json` 是**生成产物**，单一真源是各 `source.json`；改完必跑 `node scripts/build-index.mjs`。
 - 顺序由 `scripts/build-index.mjs` 的 `ORDER` 锁定（与 reader `ONLINE_SOURCE_IDS` 对齐），不要手改清单顺序。
+- 镜像线路（`copy`/`jinman`/`manwa`/`baozi`/`wnacg`/`roumanwu`/`pixiv`/`pica` 的 `config.mirrors`）以本仓为准；reader 内置是离线兜底，发版时同步。`copy` 必须同时维护 `mirrorGroups`。
+- ⚠️ reader 的「强制锁定线路」弹层读 `Index.ets` 硬编码线路表，不读本仓；改线路时该弹层不会同步。
 
 ## 常用命令
 
@@ -31,7 +33,8 @@ node scripts/build-index.mjs --check  # 校验（CI 同款，失败退出码 1�
 - [ ] `metadata.id` == 目录名，且 key 在 `ONLINE_SOURCE_IDS` 内
 - [ ] `metadata.type == "manga"`，`nsfw` 是布尔
 - [ ] `sources[]` 非空，每条有 `name` + `baseUrl`
-- [ ] `config`（若有）是非空对象，且没有复述 App 内置已修好的值（热更是覆盖不是补丁）
+- [ ] 镜像线路在本仓维护，且与 reader 内置兜底一致；改 `copy` 时 `mirrors` 与 `mirrorGroups` 同步更新
+- [ ] 其余 `config`（若有）是非空对象，且没有复述 App 内置已修好的值（热更是覆盖不是补丁）
 - [ ] 跑过 `node scripts/build-index.mjs --check`
 - [ ] 提交信息用简体中文，`<type>(<scope>): <描述>`；`main` 禁直推，走功能分支
 

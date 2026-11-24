@@ -19,5 +19,15 @@
       "lang": "zh",
       "baseUrl": "https://comic18j-lodo.cc"
     }
-  ]
+  ],
+  "config": {
+    "mirrors": [
+      "comic18j-lodo.cc",
+      "comic18j-robo.net",
+      "comic18j-robo.club",
+      "18comic-ive.club",
+      "18comic-aspa.org",
+      "18comic-wantgo.cc"
+    ]
+  }
 }

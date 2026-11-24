@@ -14,7 +14,12 @@
         "lang": "zh",
         "baseUrl": "https://picaapi.picacomic.com"
       }
-    ]
+    ],
+    "config": {
+      "mirrors": [
+        "picaapi.picacomic.com"
+      ]
+    }
   },
   {
     "name": "Manbo: Komiic",
@@ -48,7 +53,41 @@
         "lang": "zh",
         "baseUrl": "https://api.2026copy.com"
       }
-    ]
+    ],
+    "config": {
+      "mirrors": [
+        "https://mapi.copy20.com/api/v3",
+        "https://mapi.copy2000.site/api/v3",
+        "https://api.2025copy.com/api/v3",
+        "https://api.2026copy.com/api/v3",
+        "https://mapi.hotmangasd.com/api/v3",
+        "https://api.manga2025.com/api/v3",
+        "https://mapi.hotmangasf.com/api/v3",
+        "https://mapi.hotmangasg.com/api/v3",
+        "https://mapi.elfgjfghkk.club/api/v3",
+        "https://mapi.fgjfghkk.club/api/v3",
+        "https://mapi.fgjfghkkcenter.club/api/v3",
+        "https://api.mangacopy.com/api/v3"
+      ],
+      "mirrorGroups": [
+        [
+          "https://mapi.copy20.com/api/v3",
+          "https://mapi.copy2000.site/api/v3",
+          "https://api.2025copy.com/api/v3",
+          "https://api.2026copy.com/api/v3",
+          "https://mapi.hotmangasd.com/api/v3",
+          "https://api.manga2025.com/api/v3",
+          "https://mapi.hotmangasf.com/api/v3",
+          "https://mapi.hotmangasg.com/api/v3",
+          "https://mapi.elfgjfghkk.club/api/v3",
+          "https://mapi.fgjfghkk.club/api/v3",
+          "https://mapi.fgjfghkkcenter.club/api/v3"
+        ],
+        [
+          "https://api.mangacopy.com/api/v3"
+        ]
+      ]
+    }
   },
   {
     "name": "Manbo: 哔哩漫画",
@@ -82,7 +121,16 @@
         "lang": "zh",
         "baseUrl": "https://cn.baozimh.com"
       }
-    ]
+    ],
+    "config": {
+      "mirrors": [
+        "cn.baozimh.com",
+        "cn.webmota.com",
+        "cn.kukuc.co",
+        "cn.twmanga.com",
+        "cn.dinnerku.com"
+      ]
+    }
   },
   {
     "name": "Manbo: GoDa漫画",
@@ -184,7 +232,17 @@
         "lang": "zh",
         "baseUrl": "https://comic18j-lodo.cc"
       }
-    ]
+    ],
+    "config": {
+      "mirrors": [
+        "comic18j-lodo.cc",
+        "comic18j-robo.net",
+        "comic18j-robo.club",
+        "18comic-ive.club",
+        "18comic-aspa.org",
+        "18comic-wantgo.cc"
+      ]
+    }
   },
   {
     "name": "Manbo: 漫蛙",
@@ -201,7 +259,17 @@
         "lang": "zh",
         "baseUrl": "https://manwafl.cc"
       }
-    ]
+    ],
+    "config": {
+      "mirrors": [
+        "manwafl.cc",
+        "manwass.cc",
+        "manwatg.cc",
+        "manwast.cc",
+        "manwasy.cc",
+        "manwa.me"
+      ]
+    }
   },
   {
     "name": "Manbo: 肉漫屋",
@@ -218,7 +286,13 @@
         "lang": "zh",
         "baseUrl": "https://rouman5.com"
       }
-    ]
+    ],
+    "config": {
+      "mirrors": [
+        "rouman5.com",
+        "roum28.xyz"
+      ]
+    }
   },
   {
     "name": "Manbo: 绅士漫画",
@@ -235,7 +309,15 @@
         "lang": "zh",
         "baseUrl": "https://www.wn10.cfd"
       }
-    ]
+    ],
+    "config": {
+      "mirrors": [
+        "www.wn10.cfd",
+        "www.wn10.shop",
+        "www.wn07.cfd",
+        "www.wn07.shop"
+      ]
+    }
   },
   {
     "name": "Manbo: E-Hentai",
@@ -269,7 +351,12 @@
         "lang": "ja",
         "baseUrl": "https://www.pixiv.net"
       }
-    ]
+    ],
+    "config": {
+      "mirrors": [
+        "www.pixiv.net"
+      ]
+    }
   },
   {
     "name": "Manbo: 腾讯漫画",

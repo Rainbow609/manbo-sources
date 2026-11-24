@@ -19,5 +19,10 @@
       "lang": "ja",
       "baseUrl": "https://www.pixiv.net"
     }
-  ]
+  ],
+  "config": {
+    "mirrors": [
+      "www.pixiv.net"
+    ]
+  }
 }
