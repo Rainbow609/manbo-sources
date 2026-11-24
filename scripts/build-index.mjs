@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-// 生成并校验 manbo 图源清单 index.main.json。
+// 生成并校验 manbo 图源清单 index.json。
 //
-// 单一真源是各图源目录下的 source.json；index.main.json 由本脚本产出、勿手改。
-//   node scripts/build-index.mjs          # 重新生成 index.main.json
+// 单一真源是各图源目录下的 config.json；index.json 由本脚本产出、勿手改。
+//   node scripts/build-index.mjs          # 重新生成 index.json
 //   node scripts/build-index.mjs --check  # 只校验（CI 用），不一致则退出码 1
 //
 // 清单格式由 manbo-reader 的 SourceSubscription / SourceConfigMerger 消费：
@@ -13,7 +13,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const INDEX_PATH = join(ROOT, 'index.main.json');
+const INDEX_PATH = join(ROOT, 'index.json');
 
 // 与 manbo-reader utils/source/SourceIdUtil.ONLINE_SOURCE_IDS 对齐，决定清单顺序。
 const ORDER = [
@@ -35,12 +35,12 @@ function isNonEmptyString(v) {
 
 // 图源目录名必须形如 com.manbo.source.<key>，且 pkg 含内置 key（manbo 按 pkg 模糊匹配内置源）。
 function loadSource(dirName) {
-  const file = join(ROOT, dirName, 'source.json');
+  const file = join(ROOT, dirName, 'config.json');
   let doc;
   try {
     doc = JSON.parse(readFileSync(file, 'utf8'));
   } catch (e) {
-    fail(`${dirName}/source.json 解析失败: ${e.message}`);
+    fail(`${dirName}/config.json 解析失败: ${e.message}`);
     return null;
   }
   const meta = doc.metadata || {};
@@ -83,6 +83,20 @@ function loadSource(dirName) {
   } else if (doc.config !== undefined) {
     fail(`${dirName}: config 存在但不是非空对象，热更配置将被忽略`);
   }
+
+  // 可选 mirrorLabels：线路原值 → 展示名；键必须出现在 mirrors 里（防 typo）。
+  if (doc.config && doc.config.mirrorLabels !== undefined) {
+    const labels = doc.config.mirrorLabels;
+    if (labels === null || typeof labels !== 'object' || Array.isArray(labels)) {
+      fail(`${dirName}: config.mirrorLabels 必须是对象`);
+    } else {
+      const mirrors = Array.isArray(doc.config.mirrors) ? doc.config.mirrors : [];
+      for (const [url, label] of Object.entries(labels)) {
+        if (!isNonEmptyString(label)) fail(`${dirName}: config.mirrorLabels["${url}"] 必须是非空字符串`);
+        if (!mirrors.includes(url)) fail(`${dirName}: config.mirrorLabels 的键 "${url}" 不在 config.mirrors 内`);
+      }
+    }
+  }
   return entry;
 }
 
@@ -118,11 +132,11 @@ const check = process.argv.includes('--check');
 if (check) {
   const current = existsSync(INDEX_PATH) ? readFileSync(INDEX_PATH, 'utf8') : '';
   if (current !== json) {
-    console.error('index.main.json 与 source.json 不一致，请运行 node scripts/build-index.mjs 后提交。');
+    console.error('index.json 与 config.json 不一致，请运行 node scripts/build-index.mjs 后提交。');
     process.exit(1);
   }
-  console.log(`OK: index.main.json 与 ${entries.length} 个图源一致`);
+  console.log(`OK: index.json 与 ${entries.length} 个图源一致`);
 } else {
   writeFileSync(INDEX_PATH, json);
-  console.log(`已生成 index.main.json（${entries.length} 个图源）`);
+  console.log(`已生成 index.json（${entries.length} 个图源）`);
 }

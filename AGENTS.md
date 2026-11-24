@@ -1,7 +1,7 @@
 # AGENTS.md — manbo-sources
 
-manbo 系列阅读器「纸飞机」（`manbo-reader`）的图源订阅仓库。托管 `index.main.json`
-清单与每源 `source.json` 声明；**不含抓取逻辑、不含漫画内容**。
+manbo 系列阅读器「纸飞机」（`manbo-reader`）的图源订阅仓库。托管 `index.json`
+清单与每源 `config.json` 源配置；**不含抓取逻辑、不含漫画内容**。
 
 全局规范（行为准则 / 子代理 / Git / 记忆）以用户级 `~/.claude/AGENTS.md` 为准，本文件只写单仓约定。
 
@@ -16,15 +16,15 @@ manbo 系列阅读器「纸飞机」（`manbo-reader`）的图源订阅仓库。
 
 - 每个图源一个目录，目录名 = `metadata.id` = `com.manbo.source.<key>`。
 - `<key>` 必须在 reader `ONLINE_SOURCE_IDS` 清单内，且 `pkg` 包含该 key（reader 按 pkg/name 模糊匹配）。
-- `index.main.json` 是**生成产物**，单一真源是各 `source.json`；改完必跑 `node scripts/build-index.mjs`。
+- `index.json` 是**生成产物**，单一真源是各 `config.json`；改完必跑 `node scripts/build-index.mjs`。
 - 顺序由 `scripts/build-index.mjs` 的 `ORDER` 锁定（与 reader `ONLINE_SOURCE_IDS` 对齐），不要手改清单顺序。
-- 镜像线路（`copy`/`jinman`/`manwa`/`baozi`/`wnacg`/`roumanwu`/`pixiv`/`pica` 的 `config.mirrors`）以本仓为准；reader 内置是离线兜底，发版时同步。`copy` 必须同时维护 `mirrorGroups`。
-- ⚠️ reader 的「强制锁定线路」弹层读 `Index.ets` 硬编码线路表，不读本仓；改线路时该弹层不会同步。
+- 镜像线路（`copy`/`jinman`/`manwa`/`baozi`/`wnacg`/`roumanwu`/`pixiv`/`pica` 的 `config.mirrors`）**以本仓为权威编辑入口**；reader 内置是离线兜底，发版时同步。`copy` 必须同时维护 `mirrorGroups`，并可带 `mirrorLabels`。
+- ⚠️ reader 目前不消费 `mirrorLabels`，「强制锁定线路」弹层仍读 `Index.ets` 硬编码表；让弹层改读源配置归 reader 侧改动。
 
 ## 常用命令
 
 ```bash
-node scripts/build-index.mjs          # 重新生成 index.main.json
+node scripts/build-index.mjs          # 重新生成 index.json
 node scripts/build-index.mjs --check  # 校验（CI 同款，失败退出码 1）
 ```
 

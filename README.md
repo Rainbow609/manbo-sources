@@ -1,22 +1,24 @@
 # manbo-sources · 纸飞机（manbo）图源仓库
 
 manbo 系列阅读器「纸飞机」（`manbo-reader`）的**图源订阅仓库**：托管一份图源清单
-`index.main.json`，供 App 内「图源订阅」直接拉取。
+`index.json`，供 App 内「图源订阅」直接拉取。
 
-> 词汇口径：本项目统一称「图源」，不用「书源」。
+> 词汇口径：本项目统一称「图源」，不用「书源」。按 reader 的 `GLOSSARY.md`，
+> **图源**指一个在线源站；**源配置**指它的镜像表、域名、UA、限流、tab 等配置形状。
+> 本仓每个目录承载的是**一个图源的源配置**，不是可执行的抓取逻辑。
 
 ## 订阅地址
 
 ```
-https://raw.githubusercontent.com/Rainbow609/manbo-sources/main/index.main.json
+https://raw.githubusercontent.com/Rainbow609/manbo-sources/main/index.json
 ```
 
 在 App 里：**设置 → 图源 → 图源订阅地址** 填入上面的链接 → 同步。
 清单拉取后，App 按条目 `pkg` / `name` 模糊匹配到内置图源，据此决定「可用图源列表」
 并应用条目里可选的 `config` 热更。
 
-> debug 包另有内置的默认订阅地址（`SourceSubscription.DEBUG_DEFAULT_URL`），当前指向的是
-> 第三方 manxia 仓库；切换到本仓库属于 reader 侧改动，见下文「与 reader 的关系」。
+> debug 包另有内置的默认订阅地址（`SourceSubscription.DEBUG_DEFAULT_URL`），当前仍指向
+> 第三方 manxia 仓库；切换与本仓同步属于 reader 侧改动，见下文「与 reader 的关系」。
 
 ## 这个仓库和 manxia 图源仓库有什么不同
 
@@ -24,12 +26,12 @@ https://raw.githubusercontent.com/Rainbow609/manbo-sources/main/index.main.json
 的 `source.json` 里装的是 **WebView workflow 脚本**——漫匣的图源引擎在运行时解释它。
 
 纸飞机的图源是**编译进 App 的 ArkTS 实现**（`services/XxxService.ets`，见 ADR-0001）。
-因此本仓库的 `source.json` **不是**可执行的抓取逻辑，而是：
+因此本仓库的 `config.json` **不是**可执行的抓取逻辑，而是：
 
 | 内容 | 作用 | 谁来消费 |
 | --- | --- | --- |
 | `metadata` / `sources[]` | 条目展示与识别（名称、站点、语言、分级） | `SourceSubscription` / `OnlineSourceView` |
-| 可选 `config` | 配置形状热更（镜像、UA、限流、筛选 tab、能力声明等） | `SourceConfigMerger` / `SourceCapabilityResolver` |
+| `config`（可选） | 源配置（镜像线路、UA、限流、筛选 tab、能力、线路展示名等） | `SourceConfigMerger` / `SourceCapabilityResolver` |
 
 换言之：**改配置免发版，改解析逻辑仍要发版**（逻辑在 App 里，且必须可单测）。
 
@@ -37,10 +39,10 @@ https://raw.githubusercontent.com/Rainbow609/manbo-sources/main/index.main.json
 
 ```
 manbo-sources/
-├── index.main.json                  # 图源清单（由脚本生成，勿手改）
-├── scripts/build-index.mjs          # 采集各源 source.json → 生成/校验清单
+├── index.json                       # 图源清单（由脚本生成，勿手改）
+├── scripts/build-index.mjs          # 采集各源 config.json → 生成/校验清单
 ├── com.manbo.source.<key>/          # 每个图源一个目录，目录名 = pkg
-│   └── source.json                  # 图源声明（metadata + sources + 可选 config）
+│   └── config.json                  # 源配置（metadata + sources + 可选 config）
 └── ...
 ```
 
@@ -52,7 +54,7 @@ manbo-sources/
 ## 新增或修改图源
 
 ```bash
-# 1. 编辑 com.manbo.source.<key>/source.json
+# 1. 编辑 com.manbo.source.<key>/config.json
 # 2. 重新生成清单
 node scripts/build-index.mjs
 # 3. 校验（CI 同款）
@@ -64,6 +66,7 @@ node scripts/build-index.mjs --check
 - `metadata.id` == 目录名；`metadata.type` 必须是 `manga`；`metadata.nsfw` 必须是布尔。
 - `sources` 非空，每条至少 `name` + `baseUrl`。
 - `config` 若出现必须是非空对象，否则会告警（reader 侧会忽略）。
+- `config.mirrorLabels`（可选）必须是「线路原值 → 展示名」的对象，键必须出现在 `config.mirrors` 里。
 - 18+ 判定以 reader 的 `OnlineSourceView.ADULT_SOURCES` 为准；
   `pica / jinman / jcomic / manwa / wnacg / ehentai / roumanwu / pixiv` 标 `nsfw: true`。
   `nsfw` 字段只用于描述，未成年人模式的隐藏由 App 侧固定清单决定。
@@ -90,6 +93,7 @@ node scripts/build-index.mjs --check
 | `tagFilters` | `[{ key, name, defaultValue, options: [{ value, label }] }]` |
 | `homeTabs` | `[{ key, label, request: { path, query? } }]` |
 | `themeMap` | `Record<string,string>` |
+| `mirrorLabels` | `Record<线路原值, 展示名>`（线路弹层展示名；缺省回退显示线路原值） |
 | `capabilities` | `{ label?, comments?, tagSearch?, authorSearch?, authorPaged?, placeholderAuthor?, multiTag? }` |
 
 ### 镜像线路（在本仓维护）
@@ -108,11 +112,13 @@ node scripts/build-index.mjs --check
 | `pica` 哔咔漫画 | 1 | |
 
 - 当前 reader 内置线路与本仓 `config` 逐值一致；`BUILTIN_SOURCE_CONFIGS` 是**离线兜底**，
-  发版时应与本仓同步。
+  发版时应与本仓同步（见 AGENTS.md 检查清单）。
 - `copy` 只给 `mirrors` 不给 `mirrorGroups` 会把「境内 → 国际」两队竞速**降级为单队**。
-- ⚠️ **已知缺口**：reader 的「强制锁定线路」弹层读的是 `Index.ets` 里另一份硬编码表
-  （`COPY_MIRRORS` / `JINMAN_MIRRORS` / `MANWA_MIRRORS` / `ROUMANWU_MIRRORS`），
-  **不读本仓 config**；改线路后该弹层不会同步，需另开 reader 侧改动。
+- `copy` 另带 `mirrorLabels`（国际服 / 大陆专线1… / 热辣漫画 线路N）。
+- ⚠️ **已知缺口**：reader 目前**不消费** `mirrorLabels`，「强制锁定线路」弹层仍读
+  `Index.ets` 里的硬编码表（`COPY_MIRRORS` / `JINMAN_MIRRORS` / `MANWA_MIRRORS` /
+  `ROUMANWU_MIRRORS`），且 jinman 的弹层线路与内置配置本就不同。让弹层改读生效源配置
+  归 reader 侧改动（弹层读配置 + `mirrorLabels` + `DEBUG_DEFAULT_URL` 一并处理）。
 
 > ⚠️ **其余 `config` 仍是覆盖**：除镜像线路外，只在确实要盖过 App 内置默认时才声明；
 > App 内置已修好的值不要在这里复述，否则内置更新会被陈旧覆盖挡住。
@@ -123,7 +129,10 @@ node scripts/build-index.mjs --check
 - 消费链路：`SourceSubscription.fetchAndApply()` → `AppStorage.importedExtensionsStr`
   → `OnlineSourceView.parseSources()`（可用列表）+
   `SourceConfigMerger.resolveSourceConfigs()`（配置热更）+ `SourceCapabilityResolver`（能力）。
-- 镜像线路以本仓维护；其余内置默认在 reader 的 `BUILTIN_SOURCE_CONFIGS`，本仓库是**清单 + 覆盖通道**。
+- **线路的权威编辑入口是本仓**；reader 的 `BUILTIN_SOURCE_CONFIGS` 是离线兜底，发版时同步。
+  其余源配置字段仍是覆盖通道。
+- 待办（reader 侧）：弹层改读生效源配置、消费 `mirrorLabels`、`DEBUG_DEFAULT_URL` 切到
+  `.../main/index.json`。
 - 清单条目结构以 reader `SourceSubscription.ets` 文件头注释与
   `docs/adr/0001-source-refactor-shape.md` 为准。
 
