@@ -19,5 +19,14 @@
       "lang": "zh",
       "baseUrl": "https://api-get-v3.mgsearcher.com"
     }
-  ]
+  ],
+  "config": {
+    "mirrors": [
+      "godamh.com",
+      "baozimh.org",
+      "bzmh.org",
+      "g-mh.org",
+      "m.g-mh.org"
+    ]
+  }
 }
